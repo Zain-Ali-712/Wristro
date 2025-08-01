@@ -3,7 +3,6 @@ import { Maven_Pro } from 'next/font/google'
 import { ReactNode } from "react";
 import Navbar from "../components/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Sign .SignedOut } from "@clerk/nextjs";
 
 const maven = Maven_Pro({
   subsets: ['latin'],
