@@ -1,21 +1,34 @@
-"use client";
-import Link from "next/link";
+'use client';
 
-export default function Navbar() {
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FC } from 'react';
+
+const Navbar: FC = () => {
+  const router = useRouter();
+
   return (
-    <nav className="flex items-center justify-between px-6 py-4 shadow sticky top-0 z-50">
+    <nav className="flex items-center px-6 py-0.5 gap-6 border-accent rounded-4xl group-hover:animate-rotate-border">
       <Link
         href="/"
-        className="text-3xl tracking-wider uppercase text-indigo-600"
-        style={{ fontFamily: "Oryn", letterSpacing: "0.1em" }}
+        className={`relative px-6 py-2 text-lg font-medium border-1 rounded-4xl hover:text-slate-950 hover:bg-gray-700  hover:text-slate-700 group transition-all duration-500`}
       >
-        Wristro
+        Home
       </Link>
-      <div className="flex gap-6 text-sm font-medium">
-        <Link href="/products" className="hover:text-indigo-600">Products</Link>
-        <Link href="/cart" className="hover:text-indigo-600">Cart</Link>
-        <Link href="/admin" className="hover:text-indigo-600">Admin</Link>
-      </div>
+      <Link
+        href="/products"
+        className={`relative px-4 py-2 text-lg font-medium border-1 rounded-4xl hover:text-slate-950 hover:bg-gray-700  hover:text-slate-700 group transition-all duration-500`}
+      >
+        Products
+      </Link>
+      <Link
+        href="/cart"
+        className={`relative px-4 py-2 text-lg font-medium border-1 rounded-4xl hover:text-slate-950 hover:bg-gray-700  hover:text-slate-700 group transition-all duration-500`}
+      >
+        Cart
+      </Link>
     </nav>
   );
-}
+};
+
+export default Navbar;
