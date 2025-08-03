@@ -22,6 +22,90 @@
 
 @layer utilities {
   .bg-conic-mix {
-    background: conic-gradient(at top, #0f172a, #6b7280, #fafafa);
+    background: conic-gradient(at top, var(--color-background-dark), var(--color-background-light), var(--color-background-mid));
   }
+
+  .text-text {
+    color: var(--color-text);
+  }
+  .text-logo {
+    color: var(--color-logo);
+  }
+  .bg-background {
+    background-color: var(--color-background);
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .hover\:bg-hover-bg:hover {
+    background-color: var(--color-hover-bg);
+  }
+
+  .hover\:text-hover-text:hover {
+    color: var(--color-hover-text);
+  }
+}
+
+/* Default theme (Theme 1) - Based on current usage */
+:root {
+  --color-logo: #1e293b;
+  --color-text: #111827; /* text-gray-900 */
+  --color-background: #f3f4f6; /* Light neutral background */
+  --color-primary: #0f172a; /*text-slate-900 */
+  --color-secondary: #334155; /* text-slate-700 for secondary hover */
+  --color-accent: #4b5563; /* Light border/accent color */
+  --color-hover-bg: #475569 ; /* Matches hover:bg-slate-700 */
+  --color-hover-text: #020617; /* Matches hover:text-slate-950 */
+  --color-background-dark: #0f172a; /* Darker gradient start */
+  --color-background-light: #6b7280; /* Lighter gradient end */
+  --color-background-mid: #fafafa; /* Mid-tone for gradient */
+}
+
+/* Theme 2: Lighter theme */
+.theme-2 {
+  --color-logo: #603602;
+  --color-text: #f4c084c8;
+  --color-background: #110801;
+  --color-primary: #5c3300;
+  --color-secondary: #f7a440;
+  --color-accent: #f6dcbf;
+  --color-hover-bg: #e09641e0; 
+  --color-hover-text: #78350f; /* Lighter shade for hover text */
+  --color-background-dark:#572e0c; /* Darker shade for gradient */
+  --color-background-light:  #78350f; /* Lighter shade for gradient */
+  --color-background-mid:#ffedd5;
+}
+
+
+/* Theme 3: Darker theme */
+.theme-3 {
+  --color-logo: #00214c;
+  --color-text: #b6c9ff;
+  --color-background: #082f49;
+  --color-primary: #074e61;
+  --color-secondary: #002155;
+  --color-accent: #bfdbfe;
+  --color-hover-bg: rgb(6, 104, 132);
+  --color-hover-text: #e0e7ff;
+  --color-background-dark: #082f49;
+  --color-background-light: #082f49;
+  --color-background-mid: #f4f4f5;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
 }
