@@ -37,8 +37,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </Link>
               <div className="flex items-center gap-6">
                 <Navbar />
-              </div>
-              <div className="flex items-center gap-2">
                 <SignedOut>
                   <SignInButton mode="modal">
                     <span className="relative px-6 py-2 text-accent text-lg font-medium rounded-4xl bg-primary hover:bg-hover-bg hover:text-hover-text border border-accent group transition-all duration-500">
