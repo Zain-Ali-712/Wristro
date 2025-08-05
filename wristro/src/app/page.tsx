@@ -35,7 +35,7 @@ export default function Home() {
           <div className="w-20 h-auto p-5 flex flex-col items-center gap-4 bg-primary absolute" style={{ right: '5%' }}>
             <div
               className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-1' ? 'var(--color-accent)' : 'transparent' }}
+              style={{ borderColor: theme === 'theme-1' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-1')}
             >
               <Image 
@@ -48,7 +48,7 @@ export default function Home() {
             </div>
             <div
               className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-2' ? 'var(--color-accent)' : 'transparent' }}
+              style={{ borderColor: theme === 'theme-2' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-2')}
             >
               <Image 
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
             <div
               className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-3' ? 'var(--color-accent)' : 'transparent' }}
+              style={{ borderColor: theme === 'theme-3' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-3')}
             >
               <Image 
@@ -103,7 +103,7 @@ export default function Home() {
         {theme === 'theme-3' && (
           <div className="absolute z-20 right-[20%] top-[5%] sm:right-[25%] sm:top-[-5%] md:right-[30%] md:top-[-10%] lg:right-[32%] lg:top-[-10%]">
             <Image
-              src="/watch1.png" 
+              src="/watch3.png" 
               alt="Luxury Watch - Theme 1"
               width={600} 
               height={600}
@@ -117,13 +117,13 @@ export default function Home() {
           </div>
         )}
         {theme === 'theme-2' && (
-          <div className="absolute z-20 right-[25%] top-[10%] sm:right-[30%] sm:top-[5%] md:right-[35%] md:top-[2%] lg:right-[40%] lg:top-[0%]">
+          <div className="absolute z-20 right-[25%] top-[10%] sm:right-[30%] sm:top-[5%] md:right-[35%] md:top-[2%] lg:right-[30%] lg:top-[-20%]">
             <Image
               src="/watch2.png" 
               alt="Luxury Watch - Theme 2"
-              width={420} 
-              height={420}
-              className="object-contain w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[420px] lg:h-[420px]"
+              width={600} 
+              height={600}
+              className="object-contain w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[600px] lg:h-[600px]"
               style={{
                 transform: 'rotateY(20deg) perspective(1000px)',
                 borderRadius: '30px',
@@ -135,7 +135,7 @@ export default function Home() {
         {theme === 'theme-1' && (
           <div className="absolute z-20 right-[22%] top-[8%] sm:right-[28%] sm:top-[0%] md:right-[32%] md:top-[-5%] lg:right-[32%] lg:top-[-5%]">
             <Image
-              src="/watch3.png" 
+              src="/watch1.png" 
               alt="Luxury Watch - Theme 3"
               width={550} 
               height={550}
