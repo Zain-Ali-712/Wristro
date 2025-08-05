@@ -1,8 +1,9 @@
 'use client';
-
+import { ClerkProvider } from "@clerk/nextjs";
+import { SignedIn, SignInButton, SignOutButton, SignedOut } from "@clerk/nextjs";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { useTheme } from '../app/themeContext';
 
 const Navbar: FC = () => {
@@ -10,26 +11,50 @@ const Navbar: FC = () => {
   const { theme } = useTheme();
 
   return (
-    <nav className={`flex items-center z-50 px-6 py-0.5 gap-6 rounded-4xl ${theme}`}>
-      <Link
-        href="/"
-        className={`relative px-6 py-2 text-lg font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500`}
-      >
-        Home
-      </Link>
-      <Link
-        href="/products"
-        className={`relative px-4 py-2 text-lg font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500`}
-      >
-        Products
-      </Link>
-      <Link
-        href="/cart"
-        className={`relative px-4 py-2 text-lg font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500`}
-      >
-        Cart
-      </Link>
-    </nav>
+    <ClerkProvider>
+      <div className="flex justify-center w-full"> 
+        <nav className={`flex flex-row flex-wrap justify-center items-center z-50 px-2 py-2 gap-2 sm:gap-3 rounded-4xl ${theme} w-full sm:w-auto`}>
+          <Link
+            href="/"
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
+              router.pathname === '/' ? 'bg-primary text-background' : ''
+            }`}
+          >
+            Home
+          </Link>
+          <Link
+            href="/products"
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
+              router.pathname === '/products' ? 'bg-primary text-background' : ''
+            }`}
+          >
+            Products
+          </Link>
+          <Link
+            href="/cart"
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
+              router.pathname === '/cart' ? 'bg-primary text-background' : ''
+            }`}
+          >
+            Cart
+          </Link>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <span className="px-4 py-2 text-sm sm:text-base text-accent font-medium rounded-4xl bg-primary hover:bg-hover-bg hover:text-hover-text border border-accent transition-all duration-500">
+                Sign In
+              </span>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <SignOutButton>
+              <span className="px-4 py-2 text-sm sm:text-base text-accent font-medium rounded-4xl bg-primary hover:bg-hover-bg hover:text-hover-text border border-accent transition-all duration-500">
+                Sign Out
+              </span>
+            </SignOutButton>
+          </SignedIn>
+        </nav>
+      </div>
+    </ClerkProvider>
   );
 };
 

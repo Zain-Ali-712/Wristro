@@ -8,11 +8,10 @@ export default function Home() {
 
   return (
     <div className={`relative min-h-screen ${theme}`}>
-      {/* Hero Section with Background Text */}
-      <div className="relative w-full h-[65vh] md:h-[75vh] lg:h-[85vh] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-[75vh] sm:h-[70vh] md:h-[75vh] lg:h-[85vh] p-[5%] flex justify-center ">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <h1
-            className="text-[5rem] sm:text-[7rem] md:text-[8rem] lg:text-[10rem] font-bold text-primary opacity-10 mt-[-3rem] sm:mt-[-4rem] md:mt-[-5rem] lg:mt-[-6rem]"
+            className="text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] mt-[-8rem] font-bold text-primary opacity-10"
             style={{ fontFamily: "Oryn", letterSpacing: "0.1em" }}
           >
             WRISTRO
@@ -21,93 +20,91 @@ export default function Home() {
         
         {/* Transparent box with shadow overlaying the text */}
         <div 
-          className="absolute hidden sm:block sm:w-[85%] md:w-[80%] lg:w-[72%]"
+          className="absolute w-[80%] lg:w-[70%] h-[400px] md:h-[400px] lg:h-[400px] xl:h-[400px] 2xl:h-[500px] right-0"          
           style={{
-            right: '0',
-            top: '5%',
-            height: '450px',
             boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2)',
             borderRadius: '30px 0 0 30px',
             zIndex: 10,
           }}
         >
           {/* Theme Switcher Squares with Watch Images - Inside transparent div */}
-          <div className="w-20 h-auto p-5 flex flex-col items-center gap-4 bg-primary absolute" style={{ right: '5%' }}>
+          <div className="w-14 md:w-18 h-auto py-4 md:py-5 flex flex-col items-center gap-4 md:gap-5 rounded-br-xl rounded-bl-xl bg-primary absolute" style={{ right: '5%', top: '0' }}>
             <div
-              className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-1' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
+              className="w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden hover:border-2 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
+              style={{ borderColor: theme === 'theme-1' ? 'var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-1')}
             >
               <Image 
                 src="/watchA.jpg" 
                 alt="Theme 1" 
-                width={48} 
-                height={48} 
+                width={32} 
+                height={32} 
                 className="object-cover w-full h-full"
               />
             </div>
             <div
-              className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-2' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
+              className="w-8 h-8 md:w-10 md:h-10  rounded-md overflow-hidden hover:border-2 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
+              style={{ borderColor: theme === 'theme-2' ? 'var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-2')}
             >
               <Image 
                 src="/watchB.jpg" 
                 alt="Theme 2" 
-                width={48} 
-                height={48} 
+                width={32} 
+                height={32} 
                 className="object-cover w-full h-full"
               />
             </div>
             <div
-              className="w-12 h-12 rounded-md overflow-hidden hover:border-1 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
-              style={{ borderColor: theme === 'theme-3' ? 'border-1 border-var(--color-accent)' : 'transparent' }}
+              className="w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden hover:border-2 cursor-pointer transition-all hover:scale-110 bg-white bg-opacity-10 duration-500"
+              style={{ borderColor: theme === 'theme-3' ? 'var(--color-accent)' : 'transparent' }}
               onClick={() => changeTheme('theme-3')}
             >
               <Image 
                 src="/watchC.jpg" 
                 alt="Theme 3" 
-                width={48} 
-                height={48} 
+                width={32} 
+                height={32} 
                 className="object-cover w-full h-full"
               />
             </div>
           </div>
           
           {/* Theme-specific content */}
-          <div className="absolute max-w-md pr-8" style={{ right: '5%', bottom: '5%' }}>
+          <div className="absolute w-[80%] md:w-[50%] pr-4" style={{ right: '5%', bottom: '10%' }}>
             {theme === 'theme-1' && (
               <div className="text-primary">
-                <h2 className="text-2xl font-bold mb-2">Crafted with elegance and powered by design.</h2>
-                <p className="text-sm opacity-80">Engineered with a sleek steel frame, this timepiece blends innovation with minimalist luxury.</p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">Crafted with elegance and powered by design.</h2>
+                <p className="text-xs sm:text-sm opacity-80">Engineered with a sleek steel frame, this timepiece blends innovation with minimalist luxury.</p>
               </div>
             )}
             
             {theme === 'theme-2' && (
               <div className="text-accent">
-                <h2 className="text-2xl font-bold mb-2">Rooted in tradition, styled for the present.</h2>
-                <p className="text-sm opacity-80">Genuine leather meets modern engineering — a perfect balance of rugged charm and refined detail.</p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">Rooted in tradition, styled for the present.</h2>
+                <p className="text-xs sm:text-sm opacity-80">Genuine leather meets modern engineering — a perfect balance of rugged charm and refined detail.</p>
               </div>
             )}
             
             {theme === 'theme-3' && (
               <div className="text-secondary">
-                <h2 className="text-2xl font-bold mb-2">Where shadow meets sophistication.</h2>
-                <p className="text-sm opacity-80">A commanding presence forged in deep blacks and cool metal tones — style that speaks in silence.</p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">Where shadow meets sophistication.</h2>
+                <p className="text-xs sm:text-sm opacity-80">A commanding presence forged in deep blacks and cool metal tones — style that speaks in silence.</p>
               </div>
             )}
           </div>
         </div>
         
         {/* Watch image overlaying both the text and transparent box */}
-        {theme === 'theme-3' && (
-          <div className="absolute z-20 right-[20%] top-[5%] sm:right-[25%] sm:top-[-5%] md:right-[30%] md:top-[-10%] lg:right-[32%] lg:top-[-10%]">
+        
+        {theme === 'theme-1' && (
+          <div className="absolute z-20 left-[14%] top-[-2%] sm:left-[25%] sm:top-[0%] lg:left-[30%]">
             <Image
-              src="/watch3.png" 
-              alt="Luxury Watch - Theme 1"
-              width={600} 
-              height={600}
-              className="object-contain w-[200px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px]"
+              src="/watch1.png" 
+              alt="Luxury Watch - Theme 3"
+              width={500} 
+              height={500}
+              className="object-contain w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:h-[450px] lg:w-[450px] xl:h-[500px] xl:w-[500px]"
               style={{
                 transform: 'rotateY(20deg) perspective(1000px)',
                 borderRadius: '30px',
@@ -117,13 +114,13 @@ export default function Home() {
           </div>
         )}
         {theme === 'theme-2' && (
-          <div className="absolute z-20 right-[25%] top-[10%] sm:right-[30%] sm:top-[5%] md:right-[35%] md:top-[2%] lg:right-[30%] lg:top-[-20%]">
+          <div className="absolute z-20 left-[20%] top-[-7%] sm:left-[25%] sm:top-[-5%] lg:left-[30%]">
             <Image
               src="/watch2.png" 
               alt="Luxury Watch - Theme 2"
-              width={600} 
-              height={600}
-              className="object-contain w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[600px] lg:h-[600px]"
+              width={400} 
+              height={400}
+              className="object-contain w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:h-[450px] lg:w-[450px] xl:h-[500px] xl:w-[500px]"
               style={{
                 transform: 'rotateY(20deg) perspective(1000px)',
                 borderRadius: '30px',
@@ -132,14 +129,14 @@ export default function Home() {
             />
           </div>
         )}
-        {theme === 'theme-1' && (
-          <div className="absolute z-20 right-[22%] top-[8%] sm:right-[28%] sm:top-[0%] md:right-[32%] md:top-[-5%] lg:right-[32%] lg:top-[-5%]">
+        {theme === 'theme-3' && (
+          <div className="absolute z-20 left-[15%] top-[-5%] sm:left-[25%] sm:top-[-5%] lg:left-[30%]">
             <Image
-              src="/watch1.png" 
-              alt="Luxury Watch - Theme 3"
-              width={550} 
-              height={550}
-              className="object-contain w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[550px] lg:h-[550px]"
+              src="/watch3.png" 
+              alt="Luxury Watch - Theme 1"
+              width={400} 
+              height={400}
+              className="object-contain w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[420px] md:h-[420px] lg:h-[500px] lg:w-[500px] xl:h-[520px] xl:w-[520px]"
               style={{
                 transform: 'rotateY(20deg) perspective(1000px)',
                 borderRadius: '30px',
@@ -149,21 +146,23 @@ export default function Home() {
           </div>
         )}
         
-        {/* Promotional box on bottom left */}
+        
+        {/* Promotional box on bottom right */}
         <div 
-          className="absolute bg-secondary text-white p-6 sm:p-8 rounded-tr-3xl rounded-br-3xl hidden sm:block sm:w-[220px] md:w-[270px]"
+          className="absolute bg-secondary text-white p-4 px-8 rounded-tr-3xl rounded-br-3xl
+                    w-[80%] h-auto bottom-[-10%] left-0
+                    sm:w-[70%] sm:bottom-[-20%]
+                    md:w-[50%] md:h-[120px] md:bottom-[0%]
+                    lg:w-[240px] lg:h-[150px] lg:bottom-[15%] lg:left-[0%]"
           style={{
-            left: '0',
-            bottom: '7%',
-            height: '200px',
             boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
             zIndex: 15
           }}
         >
-          <h3 className="text-lg sm:text-xl font-bold mb-2">Timeless Elegance</h3>
-          <p className="text-xs sm:text-sm mb-3 sm:mb-4">Discover our collection of handcrafted timepieces that blend tradition with innovation.</p>
-          <button className="bg-primary text-white px-3 py-1 sm:px-4 sm:py-2 mb-3 sm:mb-4 rounded-md hover:bg-opacity-80 transition-all text-sm cursor-pointer">
-            Explore Collection
+          <h3 className="text-sm sm:text-md md:text-lg font-bold mb-1">Timeless Elegance</h3>
+          <p className="text-xs mb-2">Discover our collection of handcrafted timepieces that blend tradition with innovation</p>
+          <button className="bg-primary text-white px-2 py-1 rounded-md hover:bg-opacity-80 transition-all text-xs sm:text-sm">
+            Explore
           </button>
         </div>
       </div>

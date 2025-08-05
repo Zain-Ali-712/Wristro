@@ -3,8 +3,7 @@ import { Maven_Pro } from 'next/font/google';
 import Link from "next/link";
 import { ReactNode } from "react";
 import Navbar from "../components/navbar";
-import { ClerkProvider } from "@clerk/nextjs";
-import { SignedIn, SignInButton, SignOutButton, SignedOut } from "@clerk/nextjs";
+
 import { ThemeProvider } from './themeContext';
 
 const maven = Maven_Pro({
@@ -20,43 +19,27 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider>
       <ThemeProvider>
         <html lang="en">
           <head>
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
           </head>
           <body className={`min-h-screen bg-conic-mix text-text ${maven.className}`}>
-            <div className="flex items-center justify-between mt-4 px-8">
+            <header className="flex flex-col sm:flex-row items-center justify-between px-4 py-4">
               <Link
                 href="/"
-                className="text-5xl uppercase mx-w-max p-4 font-bold text-logo hover:text-hover-text transition-colors duration-500"
+                className="text-4xl sm:text-5xl uppercase text-center w-full sm:w-auto sm:mx-0 p-3 font-bold text-logo hover:text-hover-text transition-colors duration-500"
                 style={{ fontFamily: "Oryn", letterSpacing: "0.1em" }}
               >
                 Wristro
               </Link>
-              <div className="flex items-center gap-6">
+              <div className="flex flex-row items-center justify-between w-full sm:w-auto mt-2 sm:mt-0">
                 <Navbar />
-                <SignedOut>
-                  <SignInButton mode="modal">
-                    <span className="relative px-6 py-2 text-accent text-lg font-medium rounded-4xl bg-primary hover:bg-hover-bg hover:text-hover-text border border-accent group transition-all duration-500">
-                      Sign In
-                    </span>
-                  </SignInButton>
-                </SignedOut>
-                <SignedIn>
-                  <SignOutButton>
-                    <span className="relative px-6 py-2 text-accent text-lg font-medium rounded-4xl bg-primary hover:bg-hover-bg hover:text-hover-text border border-accent group transition-all duration-500">
-                      Sign Out
-                    </span>
-                  </SignOutButton>
-                </SignedIn>
               </div>
-            </div>
+            </header>
             <main className="min-h-screen">{children}</main>
           </body>
         </html>
       </ThemeProvider>
-    </ClerkProvider>
   );
 }
