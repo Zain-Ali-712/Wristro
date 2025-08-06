@@ -192,29 +192,40 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Why Wristro? Section */}
-      <div ref={whySectionRef} className="w-full py-16 bg-conic-mix text-text hidden-initial" style={{ background: 'linear-gradient(135deg, #f5f7fa 0%, #e0e7ee 100%)' }}>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-12" style={{ fontFamily: "Oryn", letterSpacing: "0.05em" }}>Why Wristro?</h2>
-        <div className="flex flex-row justify-center items-center gap-16 px-4">
-          <div className="flex flex-col items-center group text-center">
-            <i className="fas fa-tint text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gray-600 transform hover:scale-105 transition-transform duration-300" style={{ textShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}></i>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-gray-700">Water Resistant</h3>
-            <p className="text-base sm:text-lg mt-2 text-gray-500">Engineered to endure your every move.</p>
+      {/* Icon Section outside hero section */}
+      <div ref={iconSectionRef} className="w-full flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center px-12 py-6 mt-10 hidden-initial">
+        <div className="flex flex-row justify-center items-center gap-4">
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-shield-alt text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Yearly Warranty</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Enjoy 1 year of coverage for peace of mind.</p>
           </div>
-          <div className="flex flex-col items-center group text-center">
-            <i className="fas fa-gem text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gray-600 transform hover:scale-105 transition-transform duration-300" style={{ textShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}></i>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-gray-700">Premium Materials</h3>
-            <p className="text-base sm:text-lg mt-2 text-gray-500">Crafted with stainless steel & genuine leather.</p>
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-truck text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Free Shipping</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Free shipping on all orders worldwide.</p>
           </div>
-          <div className="flex flex-col items-center group text-center">
-            <i className="fas fa-sliders-h text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gray-600 transform hover:scale-105 transition-transform duration-300" style={{ textShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}></i>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-gray-700">Smart Fit & Comfort</h3>
-            <p className="text-base sm:text-lg mt-2 text-gray-500">Designed for all-day wear.</p>
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-headset text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Customer Service</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">24/7 support for all your needs.</p>
           </div>
-          <div className="flex flex-col items-center group text-center">
-            <i className="fas fa-diamond text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gray-600 transform hover:scale-105 transition-transform duration-300" style={{ textShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}></i>
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-gray-700">Modern Design</h3>
-            <p className="text-base sm:text-lg mt-2 text-gray-500">Minimalist meets luxury.</p>
+        </div>
+        <div className="flex flex-row justify-center items-center gap-4 mt-4 sm:mt-4 md:mt-4 lg:mt-0">
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-tint text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Water Resistant</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Engineered to endure your every move.</p>
+          </div>
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-gem text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Premium Materials</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Crafted with stainless steel & genuine leather.</p>
+          </div>
+          <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+            <i className="fas fa-diamond text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Modern Design</h3>
+            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Minimalist meets luxury.</p>
           </div>
         </div>
       </div>

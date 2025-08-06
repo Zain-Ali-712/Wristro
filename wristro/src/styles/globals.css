@@ -73,6 +73,17 @@
   }
 }
 
+@keyframes slide-right-to-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%); /* Move 3 times the width of three items to ensure seamless looping */
+    opacity: 1;
+  }
+}
+
 .animate-rotate-border {
   animation: rotate-border 2s linear infinite;
 }
@@ -99,6 +110,10 @@
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out 3s forwards;
+}
+
+.animate-slide-right-to-left {
+  animation: slide-right-to-left 20s linear infinite;
 }
 
 .hidden-initial {
