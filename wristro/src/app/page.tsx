@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTheme } from './themeContext';
 import { useEffect, useRef } from 'react';
+import TiltedCard from '../components/Tiltedcard';
 
 export default function Home() {
   const { theme, changeTheme } = useTheme();
@@ -31,6 +31,21 @@ export default function Home() {
       }
     };
   }, []);
+
+  const handleMenClick = () => {
+    // Placeholder for Men category page navigation
+    console.log("Navigate to Men Collection page");
+  };
+
+  const handleWomenClick = () => {
+    // Placeholder for Women category page navigation
+    console.log("Navigate to Women Collection page");
+  };
+
+  const handleCoupleClick = () => {
+    // Placeholder for Couple category page navigation
+    console.log("Navigate to Couple Collection page");
+  };
 
   return (
     <div className={`relative min-h-screen ${theme}`}>
@@ -193,40 +208,105 @@ export default function Home() {
       </div>
 
       {/* Icon Section outside hero section */}
-      <div ref={iconSectionRef} className="w-full flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center px-12 py-6 mt-10 hidden-initial">
+      <div ref={iconSectionRef} className="w-full flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center px-12 py-6 mt-6 hidden-initial">
         <div className="flex flex-row justify-center items-center gap-4">
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-shield-alt text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Yearly Warranty</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Enjoy 1 year of coverage for peace of mind.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Enjoy 1 year of coverage for peace of mind.</p>
           </div>
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-truck text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Free Shipping</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Free shipping on all orders worldwide.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Free shipping on all orders worldwide.</p>
           </div>
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-headset text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Customer Service</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">24/7 support for all your needs.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">24/7 support for all your needs.</p>
           </div>
         </div>
         <div className="flex flex-row justify-center items-center gap-4 mt-4 sm:mt-4 md:mt-4 lg:mt-0">
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-tint text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Water Resistant</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Engineered to endure your every move.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Engineered to endure your every move.</p>
           </div>
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-gem text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Premium Materials</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Crafted with stainless steel & genuine leather.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Crafted with stainless steel & genuine leather.</p>
           </div>
           <div className="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
             <i className="fas fa-diamond text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-text transition-all duration-300"></i>
             <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-1 text-text text-center">Modern Design</h3>
-            <p className="text-xs sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Minimalist meets luxury.</p>
+            <p className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">Minimalist meets luxury.</p>
           </div>
+        </div>
+      </div>
+
+      {/* Exclusive Collections Section */}
+      <div className="w-full flex flex-col justify-evenly items-center px-12 py-8 mt-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary text-center mb-8">Exclusive Collections</h2>
+        <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-center items-center gap-6">
+          <TiltedCard
+            imageSrc="/mens.jpg"
+            altText="Men Collection"
+            containerHeight="250px"
+            containerWidth="250px"
+            imageHeight="250px"
+            imageWidth="250px"
+            rotateAmplitude={12}
+            scaleOnHover={1.2}
+            showMobileWarning={false}
+            showTooltip={false}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="tilted-card-demo-text text-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                Explore Men Collection
+              </p>
+            }
+
+            onClick={handleMenClick}
+          />
+          <TiltedCard
+            imageSrc= "/womens.jpg"
+            altText="Women Collection"
+            containerHeight="250px"
+            containerWidth="250px"
+            imageHeight="250px"
+            imageWidth="250px"
+            rotateAmplitude={12}
+            scaleOnHover={1.2}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="tilted-card-demo-text text-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                Explore Women Collection
+              </p>
+            }
+            onClick={handleWomenClick}
+          />
+          <TiltedCard
+            imageSrc="/couples.jpg"
+            altText="Couple Collection"
+            containerHeight="250px"
+            containerWidth="250px"
+            imageHeight="250px"
+            imageWidth="250px"
+            rotateAmplitude={12}
+            scaleOnHover={1.2}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="tilted-card-demo-text text-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                Couple Collection
+              </p>
+            }
+            onClick={handleCoupleClick}
+          />
         </div>
       </div>
     </div>

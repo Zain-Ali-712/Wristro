@@ -16,25 +16,19 @@ const Navbar: FC = () => {
         <nav className={`flex flex-row flex-wrap justify-center items-center z-50 px-2 py-2 gap-2 sm:gap-3 rounded-4xl ${theme} w-full sm:w-auto`}>
           <Link
             href="/"
-            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
-              router.pathname === '/' ? 'bg-primary text-background' : ''
-            }`}
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 `}
           >
             Home
           </Link>
           <Link
             href="/products"
-            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
-              router.pathname === '/products' ? 'bg-primary text-background' : ''
-            }`}
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 `}
           >
             Products
           </Link>
           <Link
             href="/cart"
-            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 ${
-              router.pathname === '/cart' ? 'bg-primary text-background' : ''
-            }`}
+            className={`px-4 py-2 text-sm sm:text-base font-medium border border-accent rounded-4xl hover:bg-hover-bg hover:text-hover-text transition-all duration-500 `}
           >
             Cart
           </Link>
