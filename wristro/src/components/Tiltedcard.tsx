@@ -1,3 +1,4 @@
+'use client';
 import type { SpringOptions } from "framer-motion";
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
@@ -20,25 +21,25 @@ interface TiltedCardProps {
 }
 
 const springValues: SpringOptions = {
-  damping: 30,
-  stiffness: 100,
-  mass: 2,
+  damping: 25,
+  stiffness: 120,
+  mass: 1.5,
 };
 
 export default function TiltedCard({
   imageSrc,
   altText = "Tilted card image",
   captionText = "",
-  containerHeight = "300px",
-  containerWidth = "100%",
-  imageHeight = "300px",
-  imageWidth = "300px",
-  scaleOnHover = 1.1,
-  rotateAmplitude = 14,
-  showMobileWarning = true,
-  showTooltip = true,
+  containerHeight = "280px",
+  containerWidth = "280px",
+  imageHeight = "280px",
+  imageWidth = "280px",
+  scaleOnHover = 1.08,
+  rotateAmplitude = 12,
+  showMobileWarning = false,
+  showTooltip = false,
   overlayContent = null,
-  displayOverlayContent = false,
+  displayOverlayContent = true,
   onClick,
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
@@ -48,6 +49,8 @@ export default function TiltedCard({
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);
   const opacity = useSpring(0);
+  const overlayY = useSpring(50, springValues);
+  const overlayOpacity = useSpring(0, springValues);
   const rotateFigcaption = useSpring(0, {
     stiffness: 350,
     damping: 30,
@@ -80,10 +83,14 @@ export default function TiltedCard({
   function handleMouseEnter() {
     scale.set(scaleOnHover);
     opacity.set(1);
+    overlayY.set(0);
+    overlayOpacity.set(1);
   }
 
   function handleMouseLeave() {
     opacity.set(0);
+    overlayY.set(50);
+    overlayOpacity.set(0);
     scale.set(1);
     rotateX.set(0);
     rotateY.set(0);
@@ -93,7 +100,7 @@ export default function TiltedCard({
   return (
     <figure
       ref={ref}
-      className="relative w-full h-full [perspective:800px] flex flex-col items-center justify-center cursor-pointer group"
+      className="relative w-full h-full [perspective:1000px] flex flex-col items-center justify-center cursor-pointer group"
       style={{
         height: containerHeight,
         width: containerWidth,
@@ -110,7 +117,7 @@ export default function TiltedCard({
       )}
 
       <motion.div
-        className="relative [transform-style:preserve-3d]"
+        className="relative [transform-style:preserve-3d] overflow-hidden rounded-2xl"
         style={{
           width: imageWidth,
           height: imageHeight,
@@ -122,19 +129,19 @@ export default function TiltedCard({
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
+          className="absolute top-0 left-0 object-cover will-change-transform [transform:translateZ(0)]"
           style={{
             width: imageWidth,
             height: imageHeight,
           }}
         />
 
-        {displayOverlayContent && overlayContent && (
+        {displayOverlayContent && (
           <motion.div
-            className="absolute top-0 left-0 z-[2] will-change-transform [transform:translateZ(30px)] flex items-center justify-center bg-primary bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute bottom-0 left-0 right-0 z-[2] will-change-transform [transform:translateZ(40px)] flex items-center justify-center p-4"
             style={{
-              width: imageWidth,
-              height: imageHeight,
+              y: overlayY,
+              opacity: overlayOpacity,
             }}
           >
             {overlayContent}
@@ -144,7 +151,7 @@ export default function TiltedCard({
 
       {showTooltip && (
         <motion.figcaption
-          className="pointer-events-none absolute left-0 top-0 rounded-[4px] bg-background px-[10px] py-[4px] text-[10px] text-text opacity-0 z-[3] hidden sm:block"
+          className="pointer-events-none absolute left-0 top-0 rounded-[4px] bg-background px-[10px] py-[4px] text-[10px] text-text z-[3] hidden sm:block"
           style={{
             x,
             y,

@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+@keyframes slideInFromBottom {
+  from { 
+    transform: translateY(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.animate-from-bottom {
+  animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+/* Improved responsive design */
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Enhanced icon styling */
+.fas {
+  transition: all 0.3s ease;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
 @keyframes rotate-border {
   0% {
     transform: rotate(0deg);
